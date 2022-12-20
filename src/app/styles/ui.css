@@ -1,105 +1,105 @@
 body {
-    font: 12px sans-serif;
     margin: 0px;
-}
-
-#react-page {
-    height: 100%;
-}
-
-p {
-    margin: 0px;
-}
-
-input {
-    border: none;
-    outline: none;
-    padding: 8px;
-}
-input:hover {
-    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
-}
-button:focus {
-    outline: none;
-}
-#create:focus {
-    box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.3);
-}
-input:focus {
-    box-shadow: inset 0 0 0 2px #18a0fb;
 }
 
 .main {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: stretch;
+    flex-wrap: nowrap;
     height: 100%;
+    background-color: var(--figma-color-bg);
+    color: var(--figma-color-text);
 }
 
-textarea {
-    width: 100%;
-    height: 100%;
-    padding: 10px;
-    outline: none;
-    border: none;
-    background: rgb(35, 31, 32);
-    color: white;
-    resize: none;
-}
-
-text-area:focus-visible {
-    outline: 2px solid #5e9ed6;
-}
-
-.output-units {
+.settings-panel {
     display: flex;
-    gap: 15px;
+    flex-direction: column;
+    flex: 0 0 30%;
+    height: 100%;
+    overflow-y: auto;
+    /* padding: var(--space-m); */
+    border-right: 1px solid var(--figma-color-border);
 }
 
-.output {
-    height: 100%;
+.output-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    flex: 0 1 70%;
     position: relative;
 }
-.tab {
-    border-radius: 6px 6px 0 0;
-    font-size: 14px;
-    text-align: left;
-    padding: 8px 20px 8px 10px;
-    margin-bottom: 0;
-    background: black;
-    border: 0;
-    color: white;
-    border-bottom: 0;
-    outline: none;
+
+.output-panel .sticky-button-wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: var(--space-s);
 }
 
-.tab:hover {
-    background: rgb(25, 25, 23);
-}
-
-.selected {
-    background: rgb(35, 31, 32);
-}
-
-nav {
-    padding-top: 4px;
-    display: flex;
+.output-panel .button--clipboard {
     width: 100%;
-    background: black;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
-button:focus-visible {
-    outline: 2px solid #5e9ed6;
+.output-panel .code-output {
+    padding: var(--space-l) var(--space-l) 20vh;
+    outline: none;
+    border: none;
+    background: var(--figma-color-bg-secondary);
+    color: var(--figma-color-text-secondary);
+    resize: none;
+    flex: 1 0 auto;
 }
 
-a {
-    color: white;
-    margin-left: auto;
-    margin-right: 20px;
+.output-tabs {
+    display: flex;
+    background: var(--figma-color-bg);
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--figma-color-border);
+    color: var(--figma-color-text-secondary);
+    padding-right: var(--space-s);
 }
-a:focus-visible {
-    outline: 2px solid #5e9ed6;
+
+.panel-toggle {
+    /* border-top: 1px solid var(--figma-color-border); */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    border-bottom: 1px solid var(--figma-color-border);
+}
+
+.panel-toggle-button .icon {
+    color: inherit;
+    width: var(--icon-size);
+    height: var(--icon-size);
+}
+
+.panel-toggle-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    color: inherit;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    padding: var(--space-xs) var(--space-s);
+}
+
+.panel-toggle-options {
+    padding: var(--space-xs) var(--space-s);
+}
+
+.button--clipboard.copied {
+    background-color: var(--figma-color-bg-success);
 }
 
 .sr-only {
@@ -109,84 +109,4 @@ a:focus-visible {
     width: 1px;
     height: 1px;
     overflow: hidden;
-}
-
-.toggles-wrapper {
-    display: flex;
-    gap: 10px;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-
-.toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    width: 50px;
-    height: 50px;
-}
-
-.close {
-    width: 12px;
-    height: 12px;
-    background: #ff605c;
-    border-radius: 100%;
-    border: none;
-    margin-right: 15px;
-    margin-left: 15px;
-}
-
-.close:hover {
-    position: relative;
-}
-
-.close:focus-visible {
-    outline: 2px solid #5e9ed6;
-    position: relative;
-}
-
-.close-cross {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.close-settings {
-    color: black;
-}
-
-.main-wrapper {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-}
-
-.breakpoint-wrapper {
-    position: relative;
-    height: 50px;
-}
-
-.breakpoint {
-    text-align: center;
-    height: 100%;
-    cursor: text;
-}
-
-.breakpoint-label {
-    position: absolute;
-    color: white;
-    top: -20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    cursor: default;
-}
-
-.settings-wrapper {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 25px;
 }

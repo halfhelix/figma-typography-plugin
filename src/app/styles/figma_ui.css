@@ -1,0 +1,378 @@
+:root {
+    --space-xs: 8px;
+    --space-s: 16px;
+    --space-m: 24px;
+    --space-l: 32px;
+    --space-xl: 40px;
+
+    /* --color-black: rgba(0, 0, 0, 1);
+    --color-black-8: rgba(0, 0, 0, 0.8);
+    --color-black-3: rgba(0, 0, 0, 0.3); */
+
+    /* --color-white: #ffffff;
+    --color-white-8: rgba(255, 255, 255, 0.8);
+    --color-white-6: rgba(255, 255, 255, 0.6);
+    --color-white-4: rgba(255, 255, 255, 0.4);
+    --color-white-2: rgba(255, 255, 255, 0.2); */
+
+    /* --color-toolbar: #2c2c2c;
+    --color-hud: #222222;
+    --color-grey: #f0f0f0;
+    --color-silver: #e5e5e5; */
+
+    /* --color-blue: #18a0fb;
+    --color-purple: #7b61ff;
+    --color-pink: #f531b3;
+    --color-green: #1bc47d;
+    --color-red: #f24822;
+    --color-yellow: #ffeb00; */
+
+    --color-focus: #18A0FB;
+
+    --icon-size-large: 32px;
+    --icon-size: 12px;
+
+    --font-body: 'Inter', Arial, Helvetica, sans-serif;
+    --font-code: 'Roboto Mono', monospace;
+
+    --easing-default: 0.3s cubic-bezier(0.165, 0.840, 0.440, 1.000);
+
+    --border-radius: 6px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;500;600&display=swap');
+
+html {
+    font-family: var(--font-body);
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    letter-spacing: 0em;
+    color: var(--figma-color-text);
+}
+
+
+/* Typography */
+
+a {
+    color: inherit;
+}
+
+a:focus-visible {
+    outline: 2px solid var(--figma-color-text);
+}
+
+.text--xs {
+    font-size: 10px;
+    line-height: 16px;
+    letter-spacing: 0.01em;
+}
+
+.text--s {
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: 0.005em;
+}
+
+.text--m {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0em;
+}
+
+.text--l {
+    font-size: 13px;
+    line-height: 24px;
+    letter-spacing: -0.0025em;
+}
+
+.text--xl {
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.006em;
+}
+
+.text--regular {
+    font-weight: 400;
+}
+
+.text--medium {
+    font-weight: 500;
+}
+
+.text--bold {
+    font-weight: 600;
+}
+
+.section-title {
+    color: var(--figma-color-text);
+    margin-bottom: var(--space-s);
+}
+
+.label {
+    font-weight: 400;
+    font-size: 11px;
+    color: var(--figma-color-text-secondary);
+    margin: 0 var(--space-xs) var(--space-s) 0;
+}
+
+code {
+    font-family: var(--font-code)
+}
+
+/* Forms */
+
+.input_group {
+    margin-bottom: var(--space-s);
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    position: relative;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: unset;
+    outline: var(--figma-color-text-secondary) solid 1px;
+    border-radius: 12px;
+    margin: 0 var(--space-xs) 0 0;
+}
+
+input[type="radio"] {
+    border-radius: 100%;
+    width: 12px;
+    height: 12px;
+    transition: outline var(--easing-default);
+}
+
+input[type="radio"]:checked {
+    outline: var(--figma-color-text) solid 1px;
+}
+
+input[type="radio"]::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: "";
+    width: 6px;
+    height: 6px;
+    background-color: var(--figma-color-text);
+    border-radius: 100%;
+    opacity: 0;
+    transition: opacity var(--easing-default);
+}
+
+input[type="radio"]:checked::after {
+    opacity: 1;
+}
+
+.inputs_inline {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: var(--space-s);
+}
+
+.radio,
+.switch {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--space-s);
+}
+
+input[type="radio"] + label,
+input[type="checkbox"] + label {
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: 0.005em;
+    font-weight: 400;
+    color: var(--figma-color-text);
+}
+
+input[type="checkbox"] {
+    width: 24px;
+    height: 12px;
+    background-color: var(--figma-color-bg);
+    transition: all var(--easing-default);
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--figma-color-text);
+}
+
+input[type="checkbox"]::after {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translateX(-100%);
+    bottom: 0;
+    content: "";
+    aspect-ratio: 1 / 1;
+    border-radius: 100%;
+    background-color: var(--figma-color-bg);
+    outline: var(--figma-color-text-secondary) solid 1px;
+    transition: transform var(--easing-default);
+}
+
+input[type="checkbox"]:checked::after {
+    transform: translateX(0%);
+    outline: var(--figma-color-text) solid 1px;
+}
+
+input[type=range] {
+    appearance: none;
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+    width: 100%; /* Specific width is required for Firefox. */
+    background: transparent; /* Otherwise white in Chrome */
+    position: relative;
+}
+
+input[type=range]:focus {
+    outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    position: relative;
+    width: 100%;
+    height: 1px;
+    padding: var(--space-xs) 0;
+    cursor: pointer;
+    background: transparent;
+}
+
+input[type=range]::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    transform: translateY(-50%);
+    background-color: var(--figma-color-text-secondary);
+    z-index: 0;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    position: relative;
+    appearance: none;
+    -webkit-appearance: none;
+    height: 11px;
+    width: 11px;
+    border-radius: 100%;
+    background: var(--figma-color-text);
+    cursor: pointer;
+    margin: -5.5px 0 0 0;
+    z-index: 1;
+    border: 1px solid var(--figma-color-bg);
+}
+
+input[type=range]:focus-visible:-webkit-slider-thumb {
+    background: var(--color-focus);
+}
+
+input[type=range]::-webkit-slider-thumb::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    bottom: -10px;
+    left: -10px;
+    background-color: var(--figma-color-bg);
+    z-index: 2;
+}
+
+.range_label_wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.range_value,
+.range_unit {
+    margin: 0;
+}
+
+input[type=text] {
+    margin: var(--space-xs) 0 var(--space-xs) 0;
+    padding: var(--space-xs);
+    color: var(--figma-color-text-secondary);
+    background-color: 1px solid var(--figma-color-bg);
+    border: 1px solid var(--figma-color-border);
+    width: 100%;
+}
+
+input[type=text]::placeholder {
+    color: var(--figma-color-text-tertiary);
+}
+
+input[type=text]:focus-visible {
+    outline: var(--figma-color-bg-brand);
+}
+
+/* Buttons */
+
+.button {
+    outline: none;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0.005em;
+    padding: 7px 12px;
+    cursor: pointer;
+    transition: all var(--easing-default);
+}
+
+.button .icon {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    margin: var(--space-xs);
+}
+
+button:focus-visible {
+    outline: 2px solid #5e9ed6;
+}   
+
+.button--primary {
+    background-color: var(--figma-color-bg-brand);
+    color: var(--figma-color-text-onbrand);
+    border: none;
+}
+
+/* Tabs  */
+
+.tab-navigation {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-m);
+    padding: var(--space-s) var(--space-m);
+}
+
+.tab {
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0.005em;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    border: 0;
+    color: var(--figma-color-text-secondary);
+    border-bottom: 0;
+    outline: none;
+    background-color: unset;
+    border-bottom: 0px solid var(--figma-color-border);
+    cursor: pointer;
+}
+
+.tab:hover {
+    color: var(--figma-color-text);
+}
+
+.tab.selected {
+    color: var(--figma-color-text);
+    font-weight: 600;
+}
